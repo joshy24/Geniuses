@@ -1,0 +1,492 @@
+<style>
+
+          #form-form{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+          }      
+    
+          label{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+          }
+          
+          input{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;   
+          }
+          
+          datalist{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+          }
+          
+          ul{
+              display: block;
+              margin-left: auto;
+              margin-right: auto; 
+              width: 55%;
+             
+          }
+    
+          li{
+             font-size: 15px;
+          }
+    
+          .exam-options{
+              padding-top: 15px;
+              padding-bottom: 15px;
+              
+              width: 90%;
+              margin-left: auto;
+              margin-right: auto;
+          }
+    
+          .year-options{
+              padding-top: 15px;
+              padding-bottom: 15px;
+              
+              width: 90%;
+              margin-left: auto;
+              margin-right: auto;
+          }
+    
+    
+     @media (min-width: 500px) and (max-width: 700px) {
+         .exam-options{
+             margin-bottom: 130px;
+          }
+    
+          .year-options{
+             margin-bottom: 130px;    
+          }
+     }
+    
+    #back-panel{
+        min-width: 450px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 20px;
+        padding-top: 15px;
+        background-color: white;
+        text-align: center;
+        align-content: center;
+        width: 90%;
+              -webkit-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+    }
+
+    #start-btn{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0,0,0,0);
+        border: 0px solid white;
+    }
+    
+    .option-buttons{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0,0,0,0);
+        border: 0px solid white;
+        
+    }
+    
+    .option-list{
+        margin-left: 150px;
+        margin-right: auto;
+        float:none;
+    }
+    
+    @media (min-width: 300px) and (max-width: 710px) {
+        .option-list{
+            margin-left: 100px;
+        }      
+    }
+    
+    .exam-option-btn{
+        background-color: darkgrey;
+        border: 0px solid white;
+        color: white;
+        display: inline;
+        padding: 0px;
+        width:44%;
+        min-width: 225px;
+        height:auto;
+        min-height: 40px;
+        margin-top: 0px;
+    }
+   
+    
+    .exam-option-buttons{
+        text-align: center;
+        min-width: 450px;
+        width: 90%;
+        display: block;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 15px;
+    }
+    
+    .active{
+        background-color: white;
+        color: black;
+        -webkit-box-shadow: 1px 2px 18px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 1px 2px 18px -1px rgba(0,0,0,0.75);
+        box-shadow: 1px 2px 18px -1px rgba(0,0,0,0.75);
+    }
+    
+    #old-exam-btn{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0,0,0,0);
+        border: 0px solid white; 
+        color: dodgerblue;
+    }
+    
+    #old-exam-info{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 0px;
+            margin-top: 0px;
+     }
+    
+     @media (min-width: 300px) and (max-width: 710px) {
+        .exam-option-buttons{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }     
+        
+        .old-info-div{
+            width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+        
+        #old-exam-info{
+            width: 80%;
+            font-size: 22px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+         
+        #old-exam-btn{
+            font-size: 20px;     
+        }
+         
+        
+    }
+    
+    .category-header{
+            padding-left:50px;   
+            color:dodgerblue;
+    }   
+</style>
+
+<script>
+
+    $('.exam-options').show();
+    $('.year-options').hide();
+
+</script>
+
+
+<div class="activities">
+    <div class="container">
+        <div class="row">
+            <div class="menu col-md-2">
+                <div>
+                  <a href="" data-toggle="modal" data-target="#inviteModal"><img src="img/fb.png" height="30" width="30"> facebook</a>
+                </div>
+                <div>
+                  <a href="https://www.Twitter.com/GeniusesAfrica"><img src="img/twitterHover.png" height="30" width="30"> twitter</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/google+Hover.png" height="30" width="30"> google +</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#emailModal"><img src="img/new67.png" height="30" width="30"> mail</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/chat46.png" height="30" width="30"> chat</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#inviteModal"><img class="img-circle" src="img/GeniusesLogo.png" height="30" width="30"> invite friends</a>
+                </div>
+            </div>
+            <div class="timeline col-xs-12 col-md-8">
+                <div class="old-info-div">
+                     <h3 id="old-exam-info" class="text-center">{{old_exam_info}}</h3>
+                     <button id="old-exam-btn" ng-click="loadOldExam()">Continue with your Last exam</button>
+                </div>
+
+                    <div class="exam-option-buttons text-center">
+                        <!--<button id="custom" ng-click="showCustomDiv()" class="exam-option-btn active">Custom Examination</button> -->
+                             
+                        <button id="years" ng-click="showYearDiv()" class="exam-option-btn active">Past Examination</button>    
+                    </div>
+
+                <!--<div class="exam-options">
+                    <div class="row">
+                      <div class="col-md-12 col-xs-12">
+                         <div id="back-panel"> 
+                             
+                             <div class="row">
+                                 <button data-toggle="modal" data-target="#helpModal" class="abtn-right"><img src="img/info.png" height="20" width="20"> help</button>
+                             </div>
+                             
+                             <div class="dropdown" id="examtype-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                   What Exam are you Preparing for?
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="type-btn">
+                                     <li ng-repeat="et in exam_type track by $index" ng-click="setExamType($index)"><a href="#/examparameters">{{et}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_examtype}}</b></h4>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="subject-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="subject-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Subject
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
+                                     <li ng-repeat="dat in subjectTopics track by $index" ng-click="setSubject($index)" value="{{dat.name}}"><a href="#/examparameters">{{dat.name}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center" ng-model="selected_subject"><b> {{selected_subject}}</b></h4>
+                                 <hr>
+                             </div> 
+                             <div class="dropdown" id="class-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Class
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="class-btn">
+                                    <li ng-click="setClass($index)" ng-repeat="clas in classes track by $index" value="clas"><a href="#/examparameters">{{clas}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_class}}</b></h4>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="topic-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="topic-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Topics
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="topic-btn">
+                                    <li ng-repeat="atopic in classtopics track by $index" ng-click="addToTopics($index)"><a href="#/examparameters">{{atopic.topic}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center" ng-repeat="topic in selected_topics"><b>{{topic}}</b></h4>
+                                 <h5 class="text-center" style="color: #299EC4; margin-top:10px;">You can select up to 10 topics</h5>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="time-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="time-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Time
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="time-btn">
+                                    <li ng-repeat="time in times track by $index" ng-click="setTime($index)"><a href="#/examparameters">{{time}}</a></li> 
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_time}}</b></h4>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="number-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="number-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Number of Questions
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="number-btn">
+                                    <li ng-repeat="num in numbers track by $index" ng-click="setNumber($index)"><a href="#/examparameters">{{num}}</a></li>  
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_number_of_questions}}</b></h4>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="mode-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="mode-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Mode
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="mode-btn">
+                                    <li ng-repeat="mode in modes track by $index" ng-click="setMode($index)"><a href="#/examparameters">{{mode}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_mode}}</b></h4>
+                                 <hr>
+                             </div> 
+
+                             <button id="start-btn" ng-click="checkStart()"><img src="img/play.png" height="30" width="30"> Start</button>
+                        </div>
+                      </div>
+                    </div>
+                </div> -->
+
+
+                <div class="year-options">
+                    <div class="row">
+                      <div class="col-md-12 col-xs-12">
+                         <div id="back-panel">
+                             <div class="row">
+                                 <button data-toggle="modal" data-target="#helpModal" class="abtn-right"><img src="img/info.png" height="20" width="20"> help</button>
+                             </div>
+                             <div class="dropdown" id="examtype-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                   What Exam are you Preparing for?
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="type-btn">
+                                     <li ng-repeat="et in exam_type track by $index" ng-click="setExamType($index)"><a href="examparameters">{{et}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_examtype}}</b></h4>
+                                 <hr>
+                             </div>
+                             <div class="dropdown" id="subject-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="subject-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Subject
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
+                                     <li ng-repeat="dat in subjectTopics track by $index" ng-click="setSubject($index)" value="{{dat.name}}"><a href="examparameters">{{dat.name}}</a></li>
+                                 </ul>
+                                 <h4 class="text-center" ng-model="selected_subject"><b> {{selected_subject}}</b></h4>
+                                 <hr>
+                             </div> 
+                             <div class="dropdown" id="year-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="mode-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Year
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="mode-btn">
+                                    <li ng-repeat="year in years track by $index" ng-click="setYear($index)"><a href="examparameters">{{year}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_year}}</b></h4>
+                                 <hr>
+                             </div> 
+                             <div class="dropdown" id="mode-form">
+
+                                 <button class="text-center option-buttons dropdown-toggle" type="button" id="mode-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Mode
+                                    <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu option-list" aria-labelledby="mode-btn">
+                                    <li ng-repeat="mode in modes track by $index" ng-click="setMode($index)"><a href="examparameters">{{mode}}</a></li>
+                                 </ul>
+
+                                 <h4 class="text-center"><b>{{selected_mode}}</b></h4>
+                                 <hr>
+                             </div> 
+
+                             <button id="start-btn" ng-click="checkStart()"><img src="img/play.png" height="30" width="30"> Start</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="twitter col-md-1">
+              
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+           
+          </div>
+          <div class="modal-body">
+                
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+    </div>
+
+    
+   <div  class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              <h4 class="text-center">Help</h4>
+          </div>
+          <div class="modal-body">
+               <h6 class="category-header"><b>Examinations</b></h6>
+               <h5 class="text-center"><b>Custom Examination</b></h5>
+               <h5 class="text-center">Learn and Practice questions irrespetive of the class(SSS1-SSS3) you are in or topics you have been taught.</h5>
+               <br>
+               <h5 class="text-center"><b>Past Examination</b></h5>
+               <h5 class="text-center">Learn and Practice questions from past external examinations. This option is for students(SSS3) preparing for external examinations like SSCE, UTME, NECO, IGCSE etc.</h5>
+               <hr>
+               <h6 class="category-header"><b>Modes</b></h6>
+               <h5 class="text-center"><b>Exam Mode</b></h5>
+               <h5 class="text-center">Explanations to questions <b>CANNOT</b> be viewed and the examination is timed.</h5>
+               <br>
+               <h5 class="text-center"><b>Practice Mode</b></h5>
+               <h5 class="text-center">Also called the 'Learning' mode. Explanations <b>CAN</b> be viewed in this mode and the examination is not timed.</h5>
+               <br>
+          </div>
+          <div class="modal-footer white-leg">
+               <h5 class="text-center"><b>All questions are explained in detail helping you fully understand the underlying concept behind each question.</b></h5>
+               <button type="button" id="closebtn1" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   <div  class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              <h5 class="text-center">Message</h5>
+          </div>
+          <div class="modal-body">
+               <h4>{{err_message}}</h4>
+          </div>
+          <div class="modal-footer white-leg">
+             <button type="button" id="closebtn1" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+

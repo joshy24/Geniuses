@@ -1,0 +1,212 @@
+<style>
+
+          h4{
+              text-transform: capitalize;
+          }
+          
+          .afriend{
+              margin-top: 5px;
+              margin-bottom: 5px;
+              display:block;
+              margin-left: auto;
+              margin-right: auto;
+              padding-left: 15px;
+              background: white;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              -webkit-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+              width: 90%;
+          }
+    
+          #view-profile-btn{
+              border: 0px solid white;
+              background-color: white;
+              background-color: rgba(0,0,0,0);
+              font-size: 17px;
+              display:block;
+              margin-left: auto;
+              margin-right: auto;
+          }
+        
+          #view-profile-btn:hover{
+              color: #299EC4;
+          }
+
+          #friend-requests-btn{
+              display:block;
+              margin-left: auto;
+              margin-right: auto;
+              border: 0px solid white;
+              background-color: white;
+              background-color: rgba(0,0,0,0);
+          }
+    
+          .request-btn-div{
+              margin-top: 0px;
+              margin-bottom: 10px;
+          }
+    
+          .friends-div-div{
+              margin-bottom: 50px;
+              width: 100%;
+              margin-left: auto;
+              margin-right: auto;
+              margin-top: 0px;
+              padding-top: 0px;
+          }
+    
+          h1{
+              margin-top: 0px;
+              padding-top: 0px;
+          }
+    
+          .friends-search-div{
+              width: 86%;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 20px;
+              padding-bottom: 10px;
+              background-color: lightgrey;
+              height: 125px;
+              padding-top: 15px;
+              color: black;
+              -webkit-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+              -moz-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+              box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+          }
+          
+          #friends-search-textarea{
+              width :96%;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              padding-left: 10px;
+              padding-right: 10px;
+              border :0px solid black;
+              height: 70px;
+              font-size: 18px;
+          } 
+
+          @media (min-width: 500px) and (max-width: 700px) {
+              .user-input textarea{
+                  font-size: 18px;
+              }
+          }
+          
+          .user-input img{
+              
+              margin-right: 2px;
+              margin-top: 0px;
+          }
+          
+          .user-input button{
+              background-color: rgba(0,0,0,0);
+              border: 0px solid grey;
+              display :block;
+              margin-left: auto;
+              margin-right: auto;
+              padding-top:0px;
+          }    
+          
+          .user-input button:hover {
+              color: #299EC4;
+          }
+            
+</style>
+
+
+<div class="activities" ng-cloak>
+    <div class="container">
+        <div class="row">   
+            <div class="menu col-md-2">
+                 
+                <div>
+                  <a href="" data-toggle="modal" data-target="#inviteModal"><img src="img/fb.png" height="30" width="30"> facebook</a>
+                </div>
+                <div>
+                  <a href="https://www.Twitter.com/GeniusesAfrica"><img src="img/twitterHover.png" height="30" width="30"> twitter</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/google+Hover.png" height="30" width="30"> google +</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#emailModal"><img src="img/new67.png" height="30" width="30"> mail</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/chat46.png" height="30" width="30"> chat</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#inviteModal"><img class="img-circle" src="img/GeniusesLogo.png" height="30" width="30"> invite friends</a>
+                </div>
+            </div>
+            <div class="timeline col-xs-12 col-md-8">
+                <div class="friends-div-div">
+                  <div class="request-btn-div">  
+                       <button ng-click="getFriendRequests()" id="friend-requests-btn"><img src="img/persons11.png" height="30" width="30"> friend requests</button> 
+                  </div> 
+                  
+                  <!--<div class="friends-search-div">
+                      <textarea type="text" id="friends-search-textarea" placeholder="Find your Friends! search by school, class, or name." ng-model="search_param"></textarea> 
+                      <button class="abtn text-center" ng-click="searchFriends()"><h5 class="text-center"><img src="img/search.png" height="25" width="25"> search</h5></button>
+                  </div>-->
+                    
+                  <my-friend ng-repeat="item in friends" friend="item"></my-friend>
+                  <button ng-click="getAllFriends()" class="abtn"><img src="img/reload.png" height="30" width="30"> load more</button>    
+                </div>
+            </div>
+            <div class="twitter col-xs-2 col-md-2">
+                
+            </div>  
+        </div><!-- end of row -->       
+    </div> <!-- end of container fluid -->            
+</div>  <!-- end of activities -->    
+
+
+
+    <div class="modal fade" id="requestsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              
+            <h4 class="text-center">Friend Requests</h4>
+              
+          </div>
+          <div class="modal-body">
+              <div class="requests">
+                <div class="container-fluid">
+                    <div class="row">
+                      <h5 class="text-center">{{message}}</h5>
+                      <div class="right-list col-md-12 col-xs-12">
+                            <received-request ng-repeat="item in received" remove="remove(req)" showprofile="showProfile(id)" show="showMsg(msg, status)" userinfo="item"></received-request>
+                      </div>     
+                        
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer white-leg">
+            <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    
+
+    <div  class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              <h4 class="text-center">Message</h4>
+          </div>
+          <div class="modal-body">
+               <h5 class="text-center">{{err_message}}</h5>
+          </div>
+          <div class="modal-footer white-leg">
+             <button type="button" id="closebtn1" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+          </div>
+        </div>
+      </div>
+    </div> 

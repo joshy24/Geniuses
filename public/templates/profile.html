@@ -1,0 +1,360 @@
+<style>   
+          #info{
+              text-align: center;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 10px;
+              margin-top: 20px;
+          }
+          
+          .controls{
+              width: 100%;
+              margin-left: auto;
+              margin-right: 2%;
+              float:left;
+          }
+          
+          .control-button{
+              width: 90%;
+              height: 55px;
+              background-color:rgb(235,237,239);
+              background-color:rgb(235,237,239);
+              border: 0px solid white;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              padding-left: 5px;
+              text-align: left;
+              font-size: 17px;
+              float: right;
+          }
+          
+          .current{
+              background-color: white;
+          }
+          
+          .profile{
+              background-color: white;
+              width: 90%;
+              padding-top: 10px;
+              padding-bottom: 30px;
+              margin-bottom:30px;
+              -webkit-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+          }
+    
+          @media (min-width: 300px) and (max-width: 710px) {
+              .profile{
+                  width: 100%;
+              }
+              .control-button{
+                  font-size: 18px;
+              }
+          }
+    
+          .profile-save-button{
+              font-size:17px;
+              width: 88%;
+              margin-left: 20px;
+              height: 40px;
+              background-color:black;
+              border: 1px solid white;
+              color: white;
+              margin-top: 20px;
+          }
+          
+          .profile-save-button:hover{
+              opacity: 0.8;
+          }
+    
+           .save-button{
+              font-size:17px;
+              width: 88%;
+              margin-left: 20px;
+              height: 40px;
+              background-color:black;
+              border: 1px solid white;
+              color: white;
+              margin-top: 20px;
+          }
+          
+          .save-button:hover{
+              opacity: 0.8;
+          }
+          
+          .delete-button{
+              font-size:17px;
+              width: 88%;
+              margin-left: 20px;
+              height: 40px;
+              background-color:darkred;
+              border: 1px solid white;
+              color: white;
+              margin-top: 20px;
+          }
+          
+          .delete-button:hover{
+              opacity: 0.8;
+          }
+          
+          .msg{
+              margin-left: 20px;
+              font-size: 16px;
+          }
+    
+          .profile-info{
+              height:45px;
+              width: 88%;
+              margin-bottom: 15px;
+              font-size: 17px;
+              padding-left: 10px;
+              margin-left: 20px;
+          }
+    
+          @media (min-width: 500px) and (max-width: 700px) {
+              .profile-info{
+                  font-size: 19px;
+              }
+          }
+          
+          .profile h2{
+              font-size: 25px;
+              margin-left: 20px;
+              margin-bottom: 20px;
+          }
+          
+          .alabel{
+              margin-left: 20px;
+          }
+    
+          @media (min-width: 500px) and (max-width: 700px) {
+              .alabel{
+                  font-size: 18px;
+              }
+          }
+    
+          #img-div{
+             height: 120px;
+             margin-left: 20px;
+             margin-bottom: 50px;
+             width: 90%;
+             margin-right: auto;
+             display: block;
+          }
+          #myImage{
+              display: block;
+              margin-left: 0px;
+              margin-right : auto;
+              margin-bottom : 10px;
+              
+          }
+          #msg{
+              color:darkred;
+          }
+    
+          .profile-div{
+              margin-bottom: 150px;
+          }
+    
+          #upload-pic-btn{
+               font-size: 16px;
+               width: 200px;
+               display: block;
+               margin-left: 0px;
+               margin-right: auto;
+               background-color: rgb(255,255,255);
+               background-color: rgba(0,0,0,0);
+               border: 0px solid white;
+               margin-top: 15px;
+               margin-bottom: 20px;
+               background-color: royalblue;
+               color: white;
+               -webkit-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+               -moz-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+               box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+          }
+    
+          #upload-pic-btn:hover{
+               background-color: dodgerblue;
+               -webkit-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+               -moz-box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+               box-shadow: 1px 2px 18px -6px rgba(0,0,0,0.75);
+          }
+    
+          @media (min-width: 500px) and (max-width: 700px) {
+              .msg{
+                  font-size: 17px;
+              }
+              #choose-file-input{
+                  font-size: 17px;
+              }
+              #upload-pic-btn{
+                  font-size: 17px;
+              }
+              .save-button{
+                  font-size: 17px;
+              }
+              .delete-button{
+                  font-size: 17px;
+              }
+              .profile-save-button{
+                  font-size: 17px; 
+              }
+          }
+    
+          #amsg{
+               display: block;
+               margin-left: auto;
+               margin-right: auto;
+               font-size: 18px;
+               background-color: rgb(255,255,255);
+               background-color: rgba(0,0,0,0);
+               border: 0px solid white;
+          }
+    
+          .yes-button{
+               background-color: rgb(255,255,255);
+               background-color: rgba(0,0,0,0);
+               border: 0px solid white;
+          }
+          
+          #choose-file-input{
+              margin-right: 10px;
+              max-width: 100%;
+              width: auto;
+          }
+    
+          #aboutmearea{
+              border :1px solid #A0A0A0;
+              height: 70px;
+              font-size: 18px;
+          }
+    
+          .class-radios-div{
+              margin-left: 5px;
+              margin-bottom: 20px;
+          }
+    
+          .class-radios-div input{
+             display: inline;
+             margin-left: 15px;
+          }
+
+          .class-radios-div h5{
+             display: inline;
+             margin-left: 15px;
+          }
+	
+		  #yes-no-delete-div{
+			  width: 200px;
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+		  }	
+    
+</style>
+
+      <div id="info"><h1>My Account</h1></div>
+      
+      <div class="profile-div">
+        <div class="container-fluid">
+          <div class="row">
+             <div class="col-xs-4 col-sm-5 col-md-4">
+                <div class="controls"> 
+                 <button id="profileview_button" class="control-button" ng-click="showProfile()">Profile</button>
+                 <button id="passchange_button" class="control-button" ng-click="showPassword()">Change Password</button>
+                 <button id="accdelete_button" class="control-button" ng-click="showDelete()">Delete Account</button>
+                </div>
+             </div>
+             <div class="col-xs-8 col-sm-7 col-md-8">
+                <div class="profile">
+                  <div id="profile-div">   
+                    <h2 class="info">Profile Information</h2>
+                    
+                    <div id="img-div">
+                    
+                        <img id="myImage" src="{{current_img}}" height="60" width="60">
+
+                        <h5 id="msg"></h5>  
+
+                        <input id="choose-file-input" type = "file" file-model = "myFile"/>
+                        <button id="upload-pic-btn" ng-click = "uploadFile()">upload picture</button>  
+                        
+                    </div>    
+                    
+                    <h4 class="alabel">UserName</h4> 
+                    <input class="profile-info" disabled type="text" placeholder=""  ng-model="editProfile.username">
+                    <h4 class="alabel">First Name</h4>
+                    <input class="profile-info" type="text" placeholder=""  ng-model="editProfile.firstname">
+                    <h4 class="alabel">Last Name</h4>
+                    <input class="profile-info" type="text" ng-model="editProfile.lastname"> 
+                    <h4 class="alabel">Class</h4>
+                      <div class="row class-radios-div">
+                          <input type="radio" placeholder="SSS1" name="class-radio" id="radioA" ng-click="setUserClass('SSS1')">SSS1
+                          <input type="radio" placeholder="SSS2" name="class-radio" id="radioB" ng-click="setUserClass('SSS2')">SSS2
+                          <input type="radio" placeholder="SSS3" name="class-radio" id="radioC" ng-click="setUserClass('SSS3')">SSS3
+                      </div>
+                    <h4 class="alabel">Department</h4>
+                    <input class="profile-info" type="text" placeholder="" ng-model="editProfile.department">
+                    <h4 class="alabel">Favourite Subject</h4>
+                    <input class="profile-info" type="text" placeholder="" ng-model="editProfile.fav_subject">
+					<h4 class="alabel">Phone Number</h4>
+                    <input class="profile-info" type="text" placeholder="" ng-model="editProfile.phone_number">
+                    <h4 class="alabel">About Me</h4>
+                    <textarea class="profile-info" id="aboutmearea" type="text" placeholder="" ng-model="editProfile.aboutme">    </textarea>
+                    <button ng-click="submitEdited()" class="profile-save-button">Update Profile</button>
+                  </div>
+                  <div id="password-div">
+                      <h2 class="password">Change Password</h2><h4 class="alabel">Password</h4><input class="profile-info" type="password"><h4 class="alabel">Retype Password</h4><input class="profile-info" type="password"><button class="save-button">Save</button>
+                  </div>
+                  <div id="delete-div">
+                      <h2 class="password">Delete Account</h2><h5 class="msg">Note that deleting your account is irreversible.</h5><button class="delete-button" data-toggle="modal" data-target="#deleteModal">Delete My Account</button>
+                  </div>    
+                </div>
+             </div>  
+          </div>
+        </div>  
+      </div>
+
+		
+      <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+				  <h5 class="text-center">Are you sure you want to delete your account? Note that this action cant be undone once completed.</h5>
+              </div>    
+              <div class="modal-body">
+				  <div id="yes-no-delete-div">
+				  	  <button ng-click="deleteProfile()">Yes</button><button data-dismiss="modal">No</button>	
+				  </div>
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 100px;">  
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+	 
+
+      <div  class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                  
+              </div>    
+              <div class="modal-body">
+                  <h5 id="amsg">{{msg}}</h5>
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 100px;">  
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+    

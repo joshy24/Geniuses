@@ -1,0 +1,194 @@
+     <div class="activities" ng-cloak>
+        <div class="container">    
+          <div class="row">   
+            <div class="menu  col-md-2">
+                <div>
+                  <a href="" data-toggle="modal" data-target="#inviteModal"><img src="img/fb.png" height="30" width="30"> facebook</a>
+                </div>
+                <div>
+                  <a href="https://www.Twitter.com/GeniusesAfrica"><img src="img/twitterHover.png" height="30" width="30"> twitter</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/google+Hover.png" height="30" width="30"> google +</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#emailModal"><img src="img/new67.png" height="30" width="30"> mail</a>
+                </div>
+                <div>
+                  <a href=""><img src="img/chat46.png" height="30" width="30"> chat</a>
+                </div>
+                <div>
+                  <a href="" data-toggle="modal" data-target="#deleteModal"><img class="img-circle" src="img/GeniusesLogo.png" height="30" width="30"> invite friends</a>
+                </div>
+            </div>
+            <div class="timeline col-xs-12 col-md-8">
+                
+                <div class="user-input">    
+                    <textarea type="text" ng-model="Discussion.discussion" placeholder="ask a question. share an assignment. start a discussion"></textarea>
+                   <button class="abtn text-center" ng-click="makeDiscussionPost()"><h5 class="text-center"><img src="img/post.png" height="25" width="25"> post</h5></button>
+                </div>
+                
+                <div class="allposts">
+                  <button class="abtn text-center" ng-click="refreshFeed()" id="refresh-feed"><img src="img/reload.png" height="30" width="30"> refresh feed</button>    
+                     
+                  <post-item ng-repeat="item in posts track by $index" index="{{$index}}" showshare="showShare(pid,subject,question)" content="item" showpost="showSinglePost(id)">
+                  </post-item>
+                </div>    
+            </div>
+            <div class="twitter col-xs-2 col-md-2">
+                
+            </div>  
+            
+          </div><!-- end of row -->       
+        </div> <!-- end of container fluid -->            
+      </div>  <!-- end of activities -->    
+
+
+<!-- Modal -->
+    <div  class="modal fade" id="singlePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div ng-show="!isdiscussion" ng-hide="isdiscussion" class="modal-header black-head">
+               <div class="timeline-question-info-div">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-1 col-md-1">
+                            <img id="timeline-question-img" ng-src="{{icon_url}}" height="40" width="40">
+                        </div>
+                        <div class="col-xs-2 col-md-2">
+                            <h6 class="text-center question-info-label"><b>SUBJECT</b></h6>
+                            <h6 class="text-center question-info-value"><b>{{subject}}</b></h6>
+                        </div>
+                        <div class="col-xs-3 col-md-3">
+                            <h6 class="text-center question-info-label"><b>TOPIC</b></h6>
+                            <h6 class="text-center question-info-value"><b>{{topic}}</b></h6>
+                        </div>
+                        <div class="col-xs-1 col-md-1">
+                            <h6 class="text-center question-info-label"><b>EXAM</b></h6>
+                            <h6 class="text-center question-info-value"><b>{{exam_type}}</b></h6>
+                        </div>
+                        <div class="col-xs-2 col-md-2">
+                            <h6 class="text-center question-info-label"><b>CLASS</b></h6>
+                            <h6 class="text-center question-info-value"><b>{{aclass}}</b></h6>
+                        </div>
+                        <div class="col-xs-3 col-md-3">
+                            <h6 class="text-center question-info-label"><span><b>READING REFERENCE</b></span></h6>
+                            <h6 class="text-center question-info-value"></h6>
+                        </div>
+                    </div>
+                </div>
+               </div>
+          </div> 
+          <div class="modal-body">
+               
+               <single-post showshare="showShare(pid,subject,question)" index="current_post_index"></single-post>
+          </div>
+          <div class="modal-footer white-leg">
+               
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+
+    <div ng-controller="newusercontroller">
+        <div ng-cloak class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Hi {{user_name}}, Welcome! We see you are new to <span class="geniuses-color">Geniuses</span> and would like to get you started as quickly as possible.</h4>
+              </div>
+              <div class="modal-body">
+                  <button class="abtn"><a href="https://www.geniusesafrica.com/quickabout.html" target="_blank"><img src="img/about/I.jpg" height="160" width="400"></a></button>
+                  <h4 class="text-center"><a href="https://www.geniusesafrica.com/quickabout.html" target="_blank">Learn How <span class="geniuses-color">Geniuses</span> Works in a Quick Tutorial</a></h4>
+                  <hr>
+                  <h4 class="text-center">Find Your Friends from your school and other Schools on <span class="geniuses-color">Geniuses</span> and send them friend requests.</h4>
+                  
+                  <div class="class-radios-div1">
+                      <h4 id="search-by-text" class="text-center">search by: </h4>
+                      <input class="text-center search-radios big" checked type="radio" name="search-radio" ng-click="setSearchParameter('school')"> School
+                      <input class="text-center big" type="radio" name="search-radio" ng-click="setSearchParameter('name')">Name
+                  </div> 
+                  
+                  <div ng-show="searchparamater == 'school'" class="dropdown" id="school-form1">
+                        <button class="select-skul-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select School<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
+                            <li class="skul-li" ng-repeat="skul in schools track by $index" ng-click="setSchool($index)" value="{{skul}}"><a href="">{{skul}}</a></li>
+                        </ul>
+                  </div>
+                  
+                  <div id="search-textarea-div">
+                      <textarea autofocus cols="45" rows="7" id="school-friends-search-area" placeholder="Enter the name of a school or name of your friend" ng-model="value_entered"></textarea>
+                  </div>
+                  
+                  <button ng-click="searchforSchoolorName()" class="abtn"><img src="img/search.png" height="25" width="25"> search</button>
+ 
+                  <h5 class="text-center timed-text">Your Requests have been sent</h5>
+                  
+                  <div ng-show="content" ng-hide="!content" id="first-search-results">
+                      <div class="container-fluid">
+                          <hr>
+                          <h5 class="text-center">Click on one or more users and click  <a href="" id="search-a" class="geniuses-a" ng-click="sendBatchRequests()"><img src="img/send.png" height="30" width="30" > send request</a></h5>
+                           <div ng-repeat="user in users">
+                              <user-view us="selected_user" closeModal="closeModal()" isnew=true user="user"></user-view>
+                           </div>
+                      </div>
+                  </div>
+                  
+              </div>      
+              <div class="modal-footer white-leg">
+                <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> No Thanks, I'm Good</button>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div> 
+
+
+    <div  class="modal fade" id="ShareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              <h5 class="text-center">Share the link to the selected post on social media or your favourite apps.</h5>
+          </div>    
+          <div class="modal-body">
+              <h5 class="text-center"><a ng-click="gotoPost()" data-dismiss="modal" href="{{post_link}}">{{subject}} - <span ng-hide="is_image_question">{{question}}</span> <img ng-show="is_image_question" ng-src="{{image_question}}" class="timeline-share-image-question"> </a></h5>    
+              <div class="fb-share-button text-center" data-href="https://www.geniusesafrica.com" data-layout="box_count" data-mobile-iframe="true"></div> 
+          </div>  
+          <div class="modal-footer white-leg">
+              <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	<div  class="modal fade" id="deletePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header black-head">
+              <h5 class="text-center">Are you sure you want to delete this comment!</h5>
+          </div>    
+          <div class="modal-body">
+			  <div class="col-md-6 col-xs-6 col-sm-6">
+				  <button class="abtn">Yes</button>
+			  </div>
+			  <div class="col-md-6 col-xs-6 col-sm-6">
+				  <button class="abtn">No</button>
+			  </div>
+          </div>
+          <div class="fb-share-button" data-href="https://www.geniusesafrica.com" data-layout="button_count" data-mobile-iframe="true"></div>    
+          <div class="modal-footer white-leg">
+              <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+    
+     <button ng-show="single_post_show" id="close-single-post-btn" ng-click="closeSinglePost()"><img src="img/close.png" height="50" width="50" id="close-single-post-modal-img"></button>
+
+    <div id="top-btn-div" class="pull-right">
+        <button class="pull-right" id="back-to-top-btn"><img src="img/back%20to%20top%20wp.png" height="60" width="60"></button>
+    </div>

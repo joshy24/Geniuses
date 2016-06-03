@@ -1,0 +1,237 @@
+<div class="modal fade" id="fb-signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header black-head">
+          <h5 class="text-center">Thank you for signing up.</h5>
+          <h5 class="text-center">To continue we will need you to provide a unique username, the class you are currently in and the  school you attend.</h5> 
+      </div>
+      <div class="modal-body">
+          <input type="text" placeholder="Username (required)" required class="form-control" ng-model="signup.username">
+          <h5 ng-show="user_error" ng-hide="!user_error" id="user_exists_msg">A user with that username exists. Please enter a different username.</h5>
+          <hr> 
+          <!--<input type="text" placeholder="first name" required class="form-control" ng-model="signup.firstname">
+          <input type="text" placeholder="last name" required class="form-control" ng-model="signup.lastname">
+          <input type="password" placeholder="password" required class="form-control" ng-model="signup.password">
+          <input type="password" placeholder="retype password" required class="form-control" ng-model="signup.repassword">
+          <h5 ng-show="err_passwords" ng-hide="!err_passwords" id="password_err_text" class="text-center">passwords dont match!</h5>
+          <input type="text" placeholder="email" required class="form-control" ng-model="signup.email">-->
+          <div class="row class-radios-div">
+              <h5>Class</h5>
+              <input type="radio" placeholder="SSS1" name="class-radio" ng-click="setUserClass('SSS1')">SSS1
+              <input type="radio" placeholder="SSS2" name="class-radio" ng-click="setUserClass('SSS2')">SSS2
+              <input type="radio" placeholder="SSS3" name="class-radio" ng-click="setUserClass('SSS3')">SSS3
+          </div> 
+          <br>
+          <div class="row class-radios-div">
+              <h5>Department</h5>
+              <input type="radio" placeholder="Technology" name="dep-radio" ng-click="setUserDepartment('Technology')">Technology
+              <input type="radio" placeholder="Science" name="dep-radio" ng-click="setUserDepartment('Science')">Science
+              <input type="radio" placeholder="Art" name="dep-radio" ng-click="setUserDepartment('Art')">Art
+              <input type="radio" placeholder="Commercial" name="dep-radio" ng-click="setUserDepartment('Commercial')">Commercial
+          </div>
+          
+          <div class="dropdown" id="school-form">
+                <button class="select-skul-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select School<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
+                    <li class="skul-li" ng-repeat="skul in schools track by $index" ng-click="setSchool($index)" value="{{skul}}"><a href="">{{skul}}</a></li>
+                </ul>
+          </div>
+		  
+		  <input type="text" placeholder="Enter the name of your school if you cant find it in the list above" required class="form-control" ng-model="signup.school">
+          <input type="text" placeholder="Phone Number" required class="form-control" ng-model="signup.phone">
+          <!--<input type="text" placeholder="School" required class="form-control" ng-model="signup.school">-->
+          <button type="button" class="abtn" ng-click="submitDetails()"><img src="img/send.png" height="30" width="30"> Submit Details</button>
+      </div>
+      <div class="modal-footer white-leg">
+          <button type="button" id="closebtn1" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="message-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header black-head">
+          <h4 class="text-center">Ooops!!!</h4>
+      </div>
+      <div class="modal-body">
+          <h5 ngshow="unknown_error" class="text-center">An error occurred trying to sign you in. Please try again later.</h5>
+          <h5 ng-show="age_error" class="text-center">You are not eligible to signup on Geniuses. You dont belong to the 10 - 18 age group that Geniuses caters to. Please read our terms of agreement for details.</h5>
+      </div>
+      <div class="modal-footer white-leg">
+          <button type="button" class="access-btn-modal" data-dismiss="modal">GOT IT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="fb-signin-request-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header black-head">
+          <h4 class="text-center">Message</h4>
+      </div>
+      <div class="modal-body">
+          <h5 class="text-center">Please sign in to facebook to continue.</h5>
+      </div>
+      <div class="modal-footer white-leg">
+          <button type="button" class="access-btn-modal" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="success-signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header black-head">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="text-center"><img src="img/logo new.png"> SUCCESSFULL SIGN UP</h4>
+      </div>
+      <div class="modal-body">
+          <h4 class="text-center">"Registration successful. an email was sent to the email address you provided to activate your <b >Geniuses</b> account."</h4>
+      </div>
+      <div class="modal-footer white-leg">
+         <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="text-center"><img src="img/logo new.png">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+          <h5 id="signup-message" style="color:red;">{{signup_message}}</h5>
+          
+        <form>
+          <input type="text" placeholder="username" required class="form-control" ng-model="signupmail.username"> 
+          <input type="text" placeholder="first name" required class="form-control" ng-model="signupmail.firstname">
+          <input type="text" placeholder="last name" required class="form-control" ng-model="signupmail.lastname">
+          <input type="password" placeholder="password" required class="form-control" ng-model="signupmail.password">
+          <input type="password" placeholder="retype password" required class="form-control" ng-model="signupmail.repassword">
+          <input type="text" placeholder="email" required class="form-control" ng-model="signupmail.email">
+		  <input type="text" placeholder="phone number" required class="form-control" ng-model="signupmail.phone">
+          <div class="row class-radios-div">
+              <h5>Class</h5>
+              <input type="radio" placeholder="SSS1" name="class-radio" ng-click="setUserClass('SSS1')">SSS1
+              <input type="radio" placeholder="SSS2" name="class-radio" ng-click="setUserClass('SSS2')">SSS2
+              <input type="radio" placeholder="SSS3" name="class-radio" ng-click="setUserClass('SSS3')">SSS3
+          </div>          
+			
+		  <div class="dropdown" id="school-form">
+                <button class="select-skul-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select School<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
+                    <li class="skul-li" ng-repeat="skul in schools track by $index" ng-click="setSchoolMail($index)" value="{{skul}}"><a href="">{{skul}}</a></li>
+                </ul>
+          </div>	
+			
+          <input type="text" placeholder="school" required class="form-control" ng-model="signupmail.school">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="access-btn-modal" ng-click="studentsignup()">SIGN UP</button>
+        <button type="button" class="access-btn-modal" data-dismiss="modal">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+<!-- signin modal -->
+<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel"><img src="img/logo new.png"> GENIUSES SIGN IN</h3>
+      </div>
+      <div class="modal-body">
+          <h5 id="signin-message" style="color:red;">{{signin_message}}</h5>
+          <input type="text" placeholder="username or email" required class="form-control" ng-model="signin.email">
+          <input type="password" placeholder="password" required class="form-control" ng-model="signin.password">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="access-btn-modal" ng-click="studentsignin()">SIGN IN</button>
+        <button type="button" class="access-btn-modal" data-dismiss="modal">CANCEL</button><br>
+      </div>
+    </div>
+  </div>
+</div>
+      
+
+      <div class="info-div"> 
+          
+             <img src="img/NewBG.jpg" id="full-image">
+          
+             <div class="row">
+                 <button class="abtn-right llh-nav-btn" ng-click="gotoLLH()"><img src="img/LLLHLogo.png"> created by LLH Limited</button>
+             </div>
+          
+                 <img id="geniuses-img-logo" src="img/logo-large1.png">
+                 
+                 <h2 class="welcome-text"><span class="geniuses-color">GENIUSES</span></h2>
+
+                 <h4 class="connect-text text-center">connect.<span class="geniuses-color">learn</span>.share</h4>  
+
+                 <h4 class="text-center" id="about-text">A <span class="geniuses-color">Social Learning Platform</span> connecting thousands of cool, smart teenagers across Africa</h4> 
+                 
+                 
+		  		 <button id="email-signup-button" ng-click="showsignUp()">Sign Up With Email</button>
+		  		 <button id="email-signin-button" ng-click="showsignIn()">Login</button>
+		  		 <h4 class="text-center" id="or-btn">OR</h4>
+		  		 <button id="facebook-signin-button" ng-click="FBlogin()"><img id="fb-img" src="img/fb-logo-white.png" height="20" width="20"> LOGIN WITH YOUR FACEBOOK ACCOUNT</button>
+		  		 <h6 class="policy-text">By clicking continue, signup or login you agree to our <a ui-sref="terms">terms</a> and that you have read our <a ui-sref="terms">privacy policy</a>.</h6>
+		  		 
+		  		 <button class="tutorial-btn1 abtn" ng-click="showQuickAbout()">Quick Tutorial</button>
+                 <button class="tutorial-btn2 abtn" ng-click="showsignIn()">About Geniuses</button>
+      </div>
+ 	  
+      <!--<div class="features">
+       
+        <div class="container">
+        
+            <div class="webapp row">
+               <div class="col-md-6 col-xs-12">
+                   <img class="feat-img" src="img/Web%20App%20(Ib).png">
+               </div>
+               <div class="col-xs-12 col-md-5">
+                   <h2 class="text-center">THE STUDY KIT</h2>
+                   <h3 class="text-center">Work with over 12 subjects studying for your upcoming external exams like SSCE, JAMB, NECO, IGCSE or Internal School Exams. <br>Want to brag about your scores or are having difficulty with a particular question? make a post to your timeline for your friends to help out or simply notice.</h3>
+               </div>    
+            </div>
+            
+            <div class="timeline-info row">   
+               <div class="col-xs-12 col-md-6">
+                    <img class="feat-img text-center" src="img/Social Learning Platform (Ib).png">
+               </div>     
+               <div class="col-xs-12 col-md-5">
+                    <h2 class="text-center">THE TIMELINE</h2>
+                    <h3 class="text-center"></h3>
+               </div>
+                  
+            </div>
+            
+            <div class="appdownloads row">
+               <div class="col-xs-12 col-md-6">
+                    <img class="feat-img" src="img/Apps%20Download%20Page.jpg">
+               </div>
+               <div class="col-xs-12 col-md-5">
+                   <h2 class="text-center">APP DOWNLOADS</h2>
+                   <h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at eros vel lorem egestas interdum. Aenean nec ex sed urna vehicula mollis. Curabitur mollis faucibus neque at commodo. Aliquam interdum, erat sed iaculis convallis, turpis lorem lobortis lectus, vitae rutrum sapien mi eget tellus</h3>
+               </div>    
+            </div>
+          
+        </div>
+      
+      </div>  -->

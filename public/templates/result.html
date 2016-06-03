@@ -1,0 +1,205 @@
+<style>
+.result-div{
+                background-color: white;
+                padding-bottom: 20px;
+                min-width: 600px;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 100px;
+                -webkit-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+                -moz-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+                box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+            }
+            
+            .scores-meta{
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .scores{
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .percentage{
+                font-size: 4.0em;
+            }
+    
+            #back-to-exam-btn{
+                background-color: rgb(255,255,255);
+                background-color: rgba(0,0,0,0);
+                border: 0px solid white; 
+                display:inline; 
+                margin-left:auto; 
+                margin-right:auto; 
+                margin-top:15px;
+            }
+    
+             #back-to-exam-btn:hover {
+                color: #299EC4;
+            }
+        
+            .score-options{
+                text-align: center;
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .share-btn{
+                display:inline;
+                margin-left: 10px;
+                margin-right: 10px;
+                background-color: rgb(255,255,255);
+                background-color: rgba(0,0,0,0);
+                border: 0px solid white; 
+            }
+    
+            .share-btn-div{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+    
+            .share-text{
+                text-align: center;
+            }
+    
+            #msgs-div{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            #msgs-div form{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 450px;
+            }
+    
+            #msgs-div input{
+               
+                font-size: 16px;
+            }
+    
+            @media (min-width: 500px) and (max-width: 750px) {
+               
+            }
+    
+            #do-share-btn{
+                margin-top: 15px;
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: rgb(255,255,255);
+                background-color: rgba(0,0,0,0);
+                border: 0px solid white; 
+            }
+            
+        </style>
+        
+      <h1 class="text-center">Result Summary</h1>
+        
+    <div class="result-div">
+      
+          <div class="row scores-meta">
+              <div class="col-md-8 col-xs-7">
+                  <div class="row">
+                    <h3 class="subject pull-left">{{subject}}</h3>
+                  </div>
+                  <div class="row">
+                    <h3 class="exam_type pull-left">{{exam_type}}</h3>
+                  </div>
+                  <div class="row">
+                    <h3 class="mode pull-left">{{mode}}</h3>
+                  </div>
+              </div>
+              <div class="col-md-4 col-xs-5">
+                 <div class="row"> 
+                    <h1 class="pull-right percentage">{{percent_score}}</h1>
+                 </div>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-md-12 col-xs-12">
+                  <div class="row scores">
+                    <h3 class="pull-left">Attempted</h3><h3 class="attempted pull-right">{{attempted}}</h3>
+                  </div>
+                  <div class="row scores">
+                    <h3 class="pull-left">Total Correct</h3><h3 class="correct pull-right">{{correct}}</h3>
+                  </div>
+                  <div class="row scores">
+                    <h3 class="pull-left">Total Incorrect</h3><h3 class="incorrect pull-right">{{incorrect}}</h3>
+                  </div>              
+              </div>
+          </div>
+      
+        <div class="score-options">
+          <button ui-sref="examparameters" id="back-to-exam-btn" style=""><img src="img/play.png" height="30" width="30"> Work on another Exam</button>
+          <button ng-click="shareScore()" id="back-to-exam-btn" style=""><img src="img/share.png" height="30" width="30"> Share your score</button>
+        </div> 
+    </div>
+
+
+    <!-- Modal -->
+    <div  class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+         
+        <div class="modal-content">
+          <div class="modal-body">
+              <div class="row">
+                  <h5 class="share-text">Tell your friends about the <b>{{subject}}</b> exam you have worked on and your <b>score.</b></h5>
+                  <h5 class="share-text"><b>Subject - {{subject}}</b></h5>
+                  <h5 class="share-text"><b>Your Score - {{correct}}/{{total_question_count}}  ({{percent_score}})</b></h5>
+              </div>      
+              <hr>
+              <div class="row">
+                  <h5 class="share-text">Where do you want to share your score?</h5>
+                  <div class="share-btn-div">
+                      <input type="checkbox" name="media" ng-click="showMsgs('g')" class="share-btn"><img src="img/logo new (2).png" height="30" width="30">Geniuses
+                      
+					  <div class="fb-share-button" data-href="https://www.geniusesafrica.com" data-layout="button_count" data-mobile-iframe="true"></div> 
+                  </div>
+              </div>
+              <hr>
+              <div class="row" id="msgs-div">
+                   <h5 class="share-text">Select a message to send</h5>
+                   <form>
+                      <input type="radio" ng-click="setMessage(0)" name="msg" value="" checked> I scored {{correct}}/{{total_question_count}} in a {{exam_type}} {{subject}} exam on Geniuses.<br>   
+                      <input type="radio" ng-click="setMessage(1)" name="msg"> Geniuses has helped me prepare for my upcoming {{exam_type_no_year}} exams.<br>
+                      <input type="radio" ng-click="setMessage(2)" name="msg"> Geniuses has helped me improve my knowledge of {{subject}}.<br>
+                      <input type="radio" ng-click="setMessage(3)" name="msg"> Geniuses is really cool.
+                   </form>
+                  
+                  <button ng-click="share()" id="do-share-btn"><img src="img/share.png" height="30" width="30"> share</button>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div> 
+
+
+    <div  class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Message</h4>
+              </div>    
+              <div class="modal-body">
+                  <h4 class="text-center">{{message}}</h4>
+              </div>
+              <div class="modal-footer white-leg">
+                 <div style="display:block; margin-left:auto; margin-right:auto; width: 100px;">  
+                  	<button class="abtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+                 </div>
+              </div>    
+            </div>
+          </div>
+    </div>

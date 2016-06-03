@@ -1,0 +1,301 @@
+        <div class="top-top-info-div">
+          <div class="row">
+            <div class="col-md-2 col-xs-4">
+              <img class="pull-left subject-image" ng-src="{{subject_img}}" height="40" width="40">
+              <h4 class="subject-name">{{subject}}</h4>    
+            </div>
+            <div class="col-md-8 col-xs-4">
+              <h4 class="question-number text-center">{{question_number}}</h4>
+            </div>
+            <div class="col-md-2 col-xs-4">
+              <h4 class="mode pull-right">{{mode}} Mode</h4>
+            </div>   
+          </div>
+        </div>
+      
+       <div class="exam-div container">
+           
+        <div id="top-menu">
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-xs-2">
+                <button id="previous-btn" ng-click="previousQuestion()"><img src="img/previous.png" height="50" width="50"></button>
+                </div>
+                <div class="col-md-10 col-xs-8">
+                    <div id="top-div-div">
+                        <button data-toggle="modal" data-target="#startModal"><img src="img/exam-engine/ViewExplanation.png" height="40" width="40"></button>
+                        <button data-toggle="modal" data-target="#endExamModal"><img src="img/stop.png" height="40" width="40"></button>
+                        <button ng-click="pauseExam()"><img src="img/exam-engine/Pause.png" height="40" width="40"></button>
+                    </div>    
+                </div>
+                <div class="col-md-1 col-xs-2">
+                <button id="next-btn" ng-click="nextQuestion()"><img src="img/next.png" height="50" width="50"></button>
+                </div>    
+            </div>
+          </div>      
+        </div>
+      
+        <div class="question-div">
+             <div class="row">
+                 <div class="col-md-12 col-xs-12">
+                    <img id="question-image" ng-src="{{question_image}}">
+                    <img src="img/loader.gif" id="image-question-loading"/>
+                    <br>    
+                    <h3 class="text-center pull-left" id="question-text" ng-bind-html="getHtml(question_text)"></h3>
+                 </div>
+             </div>
+             <div class="col-md-6 col-xs-12">
+                <div>
+                    <input class="pull-left" type="radio" name="answer-input" id="radioA" ng-click="setAnswer('A')"> 
+                    <h4 class="question-option" id="optionA" ng-bind-html="getHtml(optionA_text)" ng-click="setAnswer('A')"></h4>
+                    <img ng-src="{{optionA_img}}" class="question-option-img" ng-click="setAnswer('A')">
+                    <img src="img/loader.gif" class="option-image-loading"/>
+                </div>
+                <div>
+                    <input class="pull-left" type="radio" name="answer-input" id="radioB" ng-click="setAnswer('B')">     
+                    <h4 class="question-option" id="optionB" ng-bind-html="getHtml(optionB_text)" ng-click="setAnswer('B')"></h4>
+                    <img ng-src="{{optionB_img}}" class="question-option-img" ng-click="setAnswer('B')">
+                    <img src="img/loader.gif" class="option-image-loading"/>
+                </div>
+                <div>
+                    <input class="pull-left" type="radio" name="answer-input" id="radioC" ng-click="setAnswer('C')"> 
+                    <h4 class="question-option" id="optionC" ng-bind-html="getHtml(optionC_text)" ng-click="setAnswer('C')"></h4>
+                    <img ng-src="{{optionC_img}}" class="question-option-img" ng-click="setAnswer('C')">
+                    <img src="img/loader.gif" class="option-image-loading"/>
+                </div>
+                <div>
+                    <input class="pull-left" type="radio" name="answer-input" id="radioD" ng-click="setAnswer('D')">    
+                    <h4 class="question-option" id="optionD" ng-bind-html="getHtml(optionD_text)" ng-click="setAnswer('D')"></h4>
+                    <img ng-src="{{optionD_img}}" class="question-option-img" ng-click="setAnswer('D')">
+                    <img src="img/loader.gif" class="option-image-loading"/>
+                </div> 
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <img src="img/loader.gif" id="question-image-loading"/>
+                <button ng-click="showMaxImage()" id="question-img-btn"><img class="question-image img-responsive" ng-src="{{image_url}}"></button>
+            </div>
+        </div>
+        
+        <div class="middle-menu">
+          <div class="container">
+            <div class="col-md-12 col-xs-12">
+              <div class="pull-right middle-menu-content">
+                  <button class="middle-btn"><img class="middle-btn-img" src="img/exam-engine/calculator46.png" ></button>
+                  <!--<button class="middle-btn"><img class="middle-btn-img" src="img/exam-engine/key168.png" ></button>
+                  <button class="middle-btn"><img class="middle-btn-img" src="img/exam-engine/semicircular.png" ></button>
+                  <button class="middle-btn"><img class="middle-btn-img" src="img/exam-engine/sticky.png" ></button>-->
+                  <button ng-click="showMaxImage()" class="middle-btn"><img class="middle-btn-img" src="img/exam-engine/zoom60.png"></button>
+              </div>
+            </div>  
+          </div>
+        </div>  
+          
+        <div class="bottom-menu">
+          <div class="row">
+            <div class="bottom-controls col-xs-12 col-md-12">
+                <div class="bottom-controls-div">
+                  <button class="col-md-4 col-xs-4"><img src="img/mode.png" ></button>
+                  <button ng-click="showExplanation()" class="col-md-4 col-xs-4"><img src="img/exam-engine/ViewCorrectAnswer.png" ></button>
+                  <!--<button ng-click="showExplanation()" class="col-md-3 col-xs-3"><img src="img/exam-engine/ViewExplanation.png" ></button> -->
+                  <button data-toggle="modal" data-target="#toTimelineModal" class="col-md-4 col-xs-4"><img src="img/exam-engine/PostToTimeline.png" ></button>
+                </div>
+            </div> 
+          </div>
+        </div>  
+    </div>  
+
+     
+    <div class="container-fluid" id="timer-div">
+    
+       <h2 id="timer-text" class="text-center">
+        {{the_time}}
+       </h2>
+    </div>
+    
+    <style>
+        #timer-div{
+           position: relative;
+            margin-top: -20px; /* negative value of footer height */
+            height: 30px;
+            clear:both;
+            margin-bottom: 200px;
+        }
+        
+        #timer-text{
+            background-color: white;
+           
+            height: 30px;
+            width: 160px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+                -moz-box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+                box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
+        }
+    </style>
+
+    <!-- Modals -->
+        <div  class="modal fade" id="explanationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                     <div class="explanation-top-div">
+                         <h4 id="explanation_info" class="text-center">{{explanation_information}}</h4>
+                     </div>
+              </div>    
+              <div class="modal-body">
+
+                 <div explanation-div>
+                     <div class="container-fluid">
+                         <div class="explanation-content-div row">
+                             <div class="col-xs-12 col-md-12">
+                                 <h4 ng-bind-html="getHtml(answer_text)" class="pull-left question-answer"><br></h4>
+                             </div>
+                             <div class="col-md-12 col-xs-12">
+                                 <img src="img/loader.gif" id="explanation-image-loading"/>
+                                 <img class="explanationimage" ng-src="{{explanation_image}}">   
+                             </div>
+                             <div class="col-md-12 col-xs-12">
+                                 <h5 class="textexplanation" ng-bind-html="getHtml(text_explanation)"></h5>
+                                 <img class="imageexplanation" ng-src="{{image_explanation}}">   
+                                 <img src="img/loader.gif" id="image-explanation-loading"/>
+                             </div>     
+                         </div>  
+                     </div>  
+                  </div>
+
+              </div>
+              <div class="modal-footer white-leg">
+                  <button type="button" id="closebtn" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+              </div>    
+            </div>
+          </div>
+        </div> 
+
+        <div  class="modal fade" id="endExamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Terminate Exam</h4>
+              </div>    
+              <div class="modal-body">
+                  <h5 class="text-center">Are You Sure you want to terminate the exam?</h5>
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 150px;">  
+                  <button class="yes-button" ng-click="endExam()"><img src="img/verify.png" height="30" width="30"> Yes</button>
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> No</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+        </div> 
+
+    <div  class="modal fade" id="toTimelineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                   <h4 class="text-center">Post To Timeline</h4>
+              </div>    
+              <div class="modal-body">
+                  <h5 class="text-center">Are you sure you want to post this {{subject}} question to your Timeline?</h5>
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 150px;">  
+                  <button class="yes-button" ng-click="postToTimeline()"><img src="img/verify.png" height="30" width="30"> Yes</button>
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> No</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+
+    
+    <div  class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Message</h4>
+              </div>    
+              <div class="modal-body">
+                  <h5 class="text-center">{{message}}</h5>
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 200px;">  
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/verify.png" height="30" width="30"> continue with exam</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+
+    <div class="modal fade" id="showImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Image</h4>
+              </div>    
+              <div class="modal-body">
+                  <img class="img-responsive" ng-src="{{max_image}}" id="max-image">
+              </div>
+              <div class="modal-footer">
+                <div style="display:block; margin-left:auto; margin-right:auto; width: 170px;">  
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+                </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+
+    
+	<div  class="modal fade" id="pauseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+                  <h4 class="text-center">Exam Paused</h4>
+              </div>    
+			  <div class="modal-body">
+				  <div class="row" id="continue-exam-btn-div">
+				  	<button data-dismiss="modal" class="abtn"><img src="img/play.png" height="40" width="40"> Continue Examination</button>
+				  </div>
+			  </div>	
+               
+            </div>
+          </div>
+    </div>
+
+    
+    <div  class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header black-head">
+				  <h4 class="text-center">Message</h4>
+              </div>    
+              <div class="modal-body">
+				  <div class="row">
+					  <div id="instructions-elements">
+						   <h4><img class="instruction-img" src="img/exam-engine/PostToTimeline.png" height="40" width="40"> - Post to Timeline button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/JumpToQuestion.png" height="40" width="40"> - Jump to Question button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/ViewExplanation.png" height="40" width="40"> - Help button</h4>
+						   <h4><img class="instruction-img" src="img/previous.png" height="40" width="40"> - Previous question navigation button</h4>
+						   <h4><img class="instruction-img" src="img/next.png" height="40" width="40"> - Next question navigation button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/Pause.png" height="40" width="40"> - Pause examination button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/close.png" height="40" width="40"> - End Examination button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/ViewCorrectAnswer.png" height="40" width="40"> - View explanation button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/zoom60.png" height="40" width="40"> - Enlarge image button</h4>
+						   <h4><img class="instruction-img" src="img/exam-engine/calculator46.png" height="40" width="40"> - Show calculator button</h4>
+					  </div>	 
+				  </div>
+              </div>
+              <div class="modal-footer white-leg">
+                  <div style="display:block; margin-left:auto; margin-right:auto; width: 100px;">  
+                  <button type="button" class="yes-button" data-dismiss="modal"><img src="img/close.png" height="30" width="30"> close</button>
+                  </div>
+              </div>    
+            </div>
+          </div>
+    </div>
+
+    
+    <input class="pull-left" type="radio" id="useless-radio" name="answer-input"0> 
