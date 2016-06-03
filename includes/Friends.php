@@ -77,6 +77,7 @@ class Friends{
         global $database;
         $aid = $database->escape_value($id);
         $type = $database->escape_value($type);
+		
      
         $result_array = self::find_by_sql("SELECT friend_id FROM " .self::$table_name. " WHERE user_id = {$aid} AND user_type = '{$type}'");
 		return !empty($result_array) ? $result_array : false;
