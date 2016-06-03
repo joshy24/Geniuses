@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=600">
+      <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+      <title>Geniuses</title>
+      
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+      
+      <link href="css/main.css" rel="stylesheet" />
+      <link href="css/othermain.css" rel="stylesheet"/>
+      
+      <link rel="stylesheet" href="vendor/bootstrap.min.css">
+      <link rel="stylesheet" href="vendor/bootstrap-theme.min.css">
+      
+      <style>
+        #quick-tour-text-div{
+            background-color: white;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+          
+        #geniuses-header{
+            width: 187px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;   
+            padding-top: 6px;
+        }  
+        
+      </style>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="scripts/slippry.min.js"></script>
+      <link rel="stylesheet" href="css/slippry.css"/>
+  </head>     
+  <body>
+      
+<div class="geniusesbar top-navi-bar" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div id="back-div">  
+        <button id="backbtn" class="abtn-left"><img src="img/backwhite.png" height="40" width="40"></button>
+    </div>  
+    <!-- Collect the nav links, forms, and other content for toggling -->
+     <div id="geniuses-header">
+            <h2 id="geniuses-text"><b>GENIUSES</b></h2>
+            <img id="geniuses-logo-img" src="img/logo new.png">
+     </div>      
+      
+     <div class="pull-right"> 
+         
+     </div> 
+  </div><!-- /.container-fluid -->
+</div>  
+                    <ul id="slippry-demo">
+                      <li>
+                        <a href="#slide1">
+                          <img src="img/about/I.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide2">
+                          <img src="img/about/II.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide3">
+                          <img src="img/about/III.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide4">
+                          <img src="img/about/IV.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide5">
+                          <img src="img/about/V.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide6">
+                          <img src="img/about/VI.jpg">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#slide7">
+                          <img src="img/about/VII.jpg">
+                        </a>
+                      </li>     
+                    </ul>                                                     
+
+      
+      <script type="text/jscript">
+        $(document).ready(function(){
+          $('#slippry-demo').slippry({
+            auto: true
+          })
+        });
+        
+        $('#backbtn').click(function(){
+            window.history.back();
+        });
+      </script>
+      
+</body>
+</html>
+      
