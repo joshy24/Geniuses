@@ -1,0 +1,2 @@
+-Error on inserting the value null in a field that is marked as int and null is a possible value;
+-Error inserting 0 value into field with default value as null;

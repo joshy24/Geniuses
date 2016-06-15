@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=600">
+      <link href="public/css/main.css" rel="stylesheet"> 
+      <link href="public/css/othermain.css" rel="stylesheet">
+      <title>Geniuses</title>
+      
+     
+      
+      <link rel="stylesheet" href="public/vendor/bootstrap.min.css">
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+      
+      <link rel="stylesheet" href="public/vendor/bootstrap-theme.min.css">
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+      
+      <script src="public/vendor/angular.min.js"></script>
+      
+      <script src="public/vendor/angular-ui-router.min.js"></script>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="slippry.min.js"></script>
+      <link rel="stylesheet" href="slippry.css"/>
+      
+	  <style>
+		 
+	  </style>
+	  
+ </head>
+    
+    <body>
+		
+    <div class="post"><div class="container-fluid"><div class="row post-owner-info-div"><h5 class="text-center">posted by <img ng-src="{{owner_image}}" height="40" width="40" class="img-circle"> <b>{{owner_name}}</b> on {{created}}</h5></div><div class="row subject-info-div"><img class="pull-left" ng-src="{{subject_img}}" id="subject-image" height="40" width="40"><div class="row"><h3 style="color:{{subject_color}};" class="post-info-text" id="subject-name"><b>{{subject_name}}</b></h3></div> </div><div class="row">' +question_template +'</div><div class="row options-info-div"><div class="col-xs-6 col-md-6"><h5 ng-bind-html="getHtml(optionA)" class="question-option"></h5></div><div class="col-xs-6 col-md-6"><h5 ng-bind-html="getHtml(optionB)" class="question-option"></h5></div><div class="col-xs-6 col-md-6"><h5 ng-bind-html="getHtml(optionC)" class="question-option"></h5></div><div class="col-xs-6 col-md-6"><h5 ng-bind-html="getHtml(optionD)" class="question-option"></h5></div></div> <div class="row explanation-info-div col-md-12"> <img class="pull-left img-circle" ng-src="{{llh_img}}" id="llh-image" height="35" width="35"> <div class="row">  <h5 class="post-info-text" id="llh-name"><b>Explanation by Team Geniuses</b></h5> </div>   </div> <div class="row"> <div class="col-xs-11 col-md-12 explanation-content-div">' +explanation_text  +'</div>  </div> <div class="row"> <div class="question-interaction-div col-md-12 col-xs-12"><div class="single-interaction"><button data-toggle="tooltip" title="click if explanation was helpful" ng-click="incrementHelpful()" class="text-center"><img src="{{helpful_img}}" height="25" width="25"> like</button><h6 class="text-center">{{helpful_count}}</h6></div><div class="single-interaction"><button data-toggle="tooltip" title="click to share this post" ng-click="incrementShare()" class="text-center"><img src="img/share-two.png" height="25" width="25"> share</button><h6 class="text-center">{{share_count}}</h6></div><div class="single-interaction"><h5 class="text-center" data-toggle="tooltip" title="number of times this post has been viewed"><img src="img/views.png" height="25" width="25"> views</h5><h6 class="text-center">{{views_count}}</h6></div><div class="single-interaction"><h5 data-toggle="tooltip" title="total number of comments on this post" class="text-center"><img src="img/comment.png" height="25" width="25"> comments</h5><h6 class="text-center">{{comment_count}}</h6></div></div></div> </div> </div><div class="user-comment-div"><div class="container-fluid"><div class="row user-info-div col-md-12"><a ng-click="showProfile(user_id)"><img class="pull-left img-circle" ng-src="{{user_img}}" id="user-image" height="40" width="40"></a><div class="row"><h5 class="capitalize post-info-text" id="user-name"><b>{{user_name}}</b></h5></div> </div><div class="row"><div class="col-xs-10 col-md-11 post-comment-div"><textarea class="post-info-text" placeholder="comment on this post" id="user-comment-text" ng-model="acomment">{{acomment}}</textarea></div> <div class="col-md-12 col-xs-12"><button ng-click="makeComment()" id="post-btn"><img src="img/post.png" height="30" width="30"> post</button></div> </div>  </div></div>
+		
+  <script type="text/jscript">
+        var testapp = angular.module('test', []);
+  </script>
+      
+    <!--Latest compiled and minified JavaScript -->
+     <script src="public/vendor/bootstrap.min.js"></script>
+     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+  </body>      
+</html> 

@@ -1,4 +1,4 @@
-myApp.controller('TopAppController', ['$scope', '$state', 'currentUser', 'service', 'responseReview', 'requestsService', 'logout', 'authService', function($scope, $state, currentUser, service, responseReview, requestsService, logout, authService){
+myApp.controller('TopAppController', ['$scope', '$state', 'currentUser', 'service', 'responseReview', 'requestsService', 'logout', 'authService', 'socket', function($scope, $state, currentUser, service, responseReview, requestsService, logout, authService, socket){
    
     $scope.user_name = "";
     
@@ -113,6 +113,9 @@ myApp.controller('TopAppController', ['$scope', '$state', 'currentUser', 'servic
    }    
     
    $scope.$on('logout', function(){
+	   
+	   socket.disconnect();
+	   
        if(authService.isLoggedIn()==true){
            if(service.setLogOut()===true){
                 service.send().then(function(response){

@@ -1,4 +1,4 @@
-myApp.factory('responseReview', ['authService','storageService', function(authService, storageService){
+myApp.factory('responseReview', ['authService','storageService', 'socket', function(authService, storageService, socket){
     
     var afactory = {};
     
@@ -8,12 +8,14 @@ myApp.factory('responseReview', ['authService','storageService', function(authSe
         var it = response.it;
        
         if(it==true){
+			socket_logout();
             authService.logOut();
         }
         else{
             if(authService.isLoggedIn()){
                 
                 if(at==null&&nt==null&&it==false){
+					socket_logout();
                     authService.logOut();
                     return false;
                 }
@@ -30,6 +32,7 @@ myApp.factory('responseReview', ['authService','storageService', function(authSe
                                 return true;
                             }
                             else{
+								socket_logout();
                                 authService.logOut();
                                 return false;
                             }
@@ -37,6 +40,7 @@ myApp.factory('responseReview', ['authService','storageService', function(authSe
                         }
                         else{
                             //unrecognised response
+							socket_logout();
                             authService.logOut();
                             return false;
                         }
@@ -83,6 +87,10 @@ myApp.factory('responseReview', ['authService','storageService', function(authSe
            }
            return window.atob(output);
     }
+	
+	function socket_logout(){
+		socket.disconnect();
+	}
     
     return afactory;
     

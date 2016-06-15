@@ -159,7 +159,6 @@ myApp.directive('postItem', ['$compile', '$state', '$sce', 'service', 'responseR
             $state.go('user', {id: uid});
         }
         
-		
         var incrementStorageShare = function(){
             var current_posts = storageService.getStorageValue("posts");
                                

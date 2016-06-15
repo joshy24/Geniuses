@@ -4,12 +4,12 @@ myApp.service('authService', ['$state', 'currentUser', 'logout','storageService'
        var sat = storageService.getStorageValue('at');
        var rat = storageService.getStorageValue('rt');
         
-        if(sat && sat!=null && rat && rat!=null){
-            return true;
-        }
-        else{
-            return false;
-        }
+       if(sat && sat!=null && rat && rat!=null){
+           return true;
+       }
+       else{
+           return false;
+       }
     }
     
     this.logOut = function(){

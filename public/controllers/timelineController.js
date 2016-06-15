@@ -120,7 +120,6 @@ myApp.controller('TimelineController', ['$rootScope','$scope', '$interval', '$wi
                     service.send().then(function(response){
                     	is_checking = false;
                         if(responseReview.check(response.data)==true){
-                            console.log(response.data);
                              if(response.data.data!=false){
                                  $scope.posts = response.data.data; 
                                  storageService.setStorageValue("posts", response.data.data);
