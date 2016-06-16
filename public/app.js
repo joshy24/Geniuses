@@ -1,4 +1,4 @@
-var myApp = angular.module('geniuses', ['ui.router','timer','btford.socket-io']);
+var myApp = angular.module('geniuses', ['ui.router','timer']);
     
 
  window.fbAsyncInit = function() {
@@ -98,14 +98,11 @@ myApp.config(['$stateProvider','$urlRouterProvider', '$locationProvider', functi
 }]);
 
 
-myApp.run(['$rootScope', '$state', '$location', "authService", 'socket', function($rootScope, $state, $location, authService, socket){
+myApp.run(['$rootScope', '$state', '$location', "authService", function($rootScope, $state, $location, authService){
     $rootScope.$on('$stateChangeStart', function(event,toState, toParams, fromState, fromParams){   
-     
-		   
+  
       if(authService.isLoggedIn()){
-           if(toState.name=="login"){
-			   socket.disconnect();
-		   } 
+         
       }
       else{
           if(toState.authenticated===true){
@@ -142,7 +139,7 @@ myApp.controller('postController',['$scope','$stateParams','externalpost','getEx
     getExternalPost.getPost(pid);
 }]);
 
-myApp.controller('LoginController', ['$q','$scope', '$rootScope', '$http', '$state', 'currentUser', 'login', 'service', 'showAbout', 'responseReview', 'getSchools', 'authService', 'service', 'socket', function($q, $scope, $rootScope, $http, $state, currentUser, login, service, showAbout, responseReview, getSchools, authService, service, socket) {
+myApp.controller('LoginController', ['$q','$scope', '$rootScope', '$http', '$state', 'currentUser', 'login', 'service', 'showAbout', 'responseReview', 'getSchools', 'authService', 'service', function($q, $scope, $rootScope, $http, $state, currentUser, login, service, showAbout, responseReview, getSchools, authService, service) {
     
     if(authService.isLoggedIn()){
          $state.go("home");
@@ -216,6 +213,7 @@ var accessWithFacebook = function(){
     FB.api(
         "me?fields=age_range,first_name,last_name,gender,picture.type(large),id,email",
         function (response) {
+		
           if (response && !response.error){
             var id = response.id;   
               
@@ -232,7 +230,7 @@ var accessWithFacebook = function(){
             else{
                login.getFBUserSignedIn(id,  $scope.fn,  $scope.ln,  $scope.age_range,  $scope.gender,  $scope.pic_url, $scope.email);
                login.send().then(function(response){
-				   console.log(response.data)
+				  
                    if(response.data){
                         switch(response.data.status){
                                 case "OK":
@@ -513,10 +511,10 @@ var accessWithFacebook = function(){
                           
                           $('.horizontal-menu').show();
                           
-						  var data = {
+						  /*var data = {
 							 user_id: authService.getUser().id,
 							 type: "S"
-						  }
+						  }*/
 						  
 						  //io.connect("localhost:3000/", { query: data });
 						  
@@ -841,25 +839,4 @@ myApp.factory('textInterval',['$interval', function($interval){
     }    
     
   return service;
-}]);
-
-myApp.factory('socket', ['socketFactory', 'authService', 'logout',function(socketFactory, authService, logout){
-	
-	var mySocket = false;
-	
-	if(authService.isLoggedIn()){
-		var data = {
-			user_id: authService.getUser().id,
-			type: "S"
-		}
-
-		var myIoSocket = io.connect("localhost:3000/", { query: data });
-
-		mySocket = socketFactory({
-		  ioSocket: myIoSocket
-		});
-	}
-	
-	
-    return mySocket;
 }]);
