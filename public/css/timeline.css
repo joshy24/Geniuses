@@ -227,6 +227,17 @@
                 margin-left: auto;
                 margin-right: auto;
              }  
+			
+			 .question-option{
+				font-size: 17px;	
+			 }
+			
+			#question-text{
+				margin-left: 52px;
+				margin-bottom: 15px;
+				line-height: 25px;
+				font-size: 17px;
+        	}
         }
 
         .explanation-info-div{
