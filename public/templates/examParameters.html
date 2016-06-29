@@ -105,9 +105,25 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
     }
     
     @media (min-width: 300px) and (max-width: 710px) {
+		.exam-option-btn{
+			font-size: 1.5em;
+		}
+		
+		#start-btn{
+			font-size: 1.5em;
+		}
+		
         .option-list{
             margin-left: 100px;
-        }      
+        }  
+		
+		.option-list li{
+			font-size: 1.6em;
+		}
+		
+		.option-buttons{
+			font-size: 1.6em;
+		}
     }
     
     .exam-option-btn{
@@ -123,6 +139,11 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
         margin-top: 0px;
     }
    
+	@media (min-width: 300px) and (max-width: 710px) {
+		.exam-option-btn{
+			font-size: 1.5em;
+		}
+	}
     
     .exam-option-buttons{
         text-align: center;
@@ -361,7 +382,7 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
                              <div class="dropdown" id="examtype-form">
 
                                  <button class="text-center option-buttons dropdown-toggle" type="button" id="type-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                   What Exam are you Preparing for?
+									 <b>What Exam are you Preparing for?</b>
                                     <span class="caret"></span>
                                  </button>
                                  <ul class="dropdown-menu option-list" aria-labelledby="type-btn">
@@ -374,7 +395,7 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
                              <div class="dropdown" id="subject-form">
 
                                  <button class="text-center option-buttons dropdown-toggle" type="button" id="subject-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Subject
+                                    <b>Subject</b>
                                     <span class="caret"></span>
                                  </button>
                                  <ul class="dropdown-menu option-list" aria-labelledby="subject-btn">
@@ -386,7 +407,7 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
                              <div class="dropdown" id="year-form">
 
                                  <button class="text-center option-buttons dropdown-toggle" type="button" id="mode-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Year
+                                    <b>Year</b>
                                     <span class="caret"></span>
                                  </button>
                                  <ul class="dropdown-menu option-list" aria-labelledby="mode-btn">
@@ -399,7 +420,7 @@ box-shadow: 1px 2px 18px -2px rgba(0,0,0,0.75);
                              <div class="dropdown" id="mode-form">
 
                                  <button class="text-center option-buttons dropdown-toggle" type="button" id="mode-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Mode
+                                    <b>Mode</b>
                                     <span class="caret"></span>
                                  </button>
                                  <ul class="dropdown-menu option-list" aria-labelledby="mode-btn">
