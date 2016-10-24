@@ -30,7 +30,7 @@
                   $name = $subject->name; 
                  
                   $time = $subject->time;
-                 
+                  
                   $subject_topics[$count] = array("name" => $name, 'topics' => $topics, "time" => $time);
                 
                   $count=$count+1;

@@ -73,6 +73,7 @@
             <div class="col-md-6 col-xs-12">
                 <img src="img/loader.gif" id="question-image-loading"/>
                 <button ng-click="showMaxImage()" id="question-img-btn"><img class="question-image img-responsive" ng-src="{{image_url}}"></button>
+				<textarea rows="8" id="passage_area" ng-bind-html="getHtml(question_passage)"></textarea>
             </div>
         </div>
         
@@ -172,7 +173,7 @@
             </div>
           </div>
         </div> 
-
+		
         <div  class="modal fade" id="endExamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">

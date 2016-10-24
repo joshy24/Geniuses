@@ -416,7 +416,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                              }
 
                              respond_extra($auser, $afriend, $is_atnew, $new_atoken, false);
-    
+    						 
                              break;
                          case "getSubjects":
                              $st = Subject::find_subjects_and_topics();

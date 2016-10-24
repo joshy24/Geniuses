@@ -11,9 +11,7 @@ myApp.directive('examExam', ['$sce', '$state', 'service', 'responseReview', 'sto
             var default_image_url = "img/logo new (2).png";
             
             $('.horizontal-menu').hide();
-			
-			
-            
+	
             try{//caught when scope.questions is not yet set
             $scope.answer_text = "";
             $scope.current_count=1;
@@ -204,7 +202,7 @@ myApp.directive('examExam', ['$sce', '$state', 'service', 'responseReview', 'sto
             $scope.nextQuestion = function(){
                 if($scope.current_count<$scope.total_number_of_questions){
                     $scope.current_count+=1;
-                   
+                    
                     setQuestionParameters();
                 }
             }
@@ -331,21 +329,24 @@ myApp.directive('examExam', ['$sce', '$state', 'service', 'responseReview', 'sto
             }
             
             function setQuestion(){
-                var question_url = resource_path+"/QuestionImages" +$scope.questions[$scope.current_count-1].question.trim();
-                
-                if(aContainsB(question_url, ".png")){
-                     $scope.question_image = question_url;
-                     $scope.question_text = "";
-                     showQuestionImage();
-                }
-                else{
-                     $scope.question_text = $scope.questions[$scope.current_count-1].question;
-                     if($scope.questions[$scope.current_count-1].instruction!=null&&$scope.questions[$scope.current_count-1].instruction!=undefined){
-                         $scope.question_text = $scope.questions[$scope.current_count-1].instruction + $scope.question_text;
-                     }
-                     $scope.question_image = default_small;
-                     showQuestionText();
-                }  
+					var question_url = resource_path+"/QuestionImages" +$scope.questions[$scope.current_count-1].question.trim();
+
+					if(aContainsB(question_url, ".png")){
+						 $scope.question_image = question_url;
+						 $scope.question_text = "";
+						 showQuestionImage();
+					}
+					else if(aContainsB(question_url, ".txt")){
+						 
+					}
+					else{
+						 $scope.question_text = $scope.questions[$scope.current_count-1].question;
+						 if($scope.questions[$scope.current_count-1].instruction!=null&&$scope.questions[$scope.current_count-1].instruction!=undefined){
+							 $scope.question_text = $scope.questions[$scope.current_count-1].instruction + $scope.question_text;
+						 }
+						 $scope.question_image = default_small;
+						 showQuestionText();
+					}  
             }
             
             function setOptions(){
@@ -675,7 +676,4 @@ myApp.directive('examExam', ['$sce', '$state', 'service', 'responseReview', 'sto
             
         }]
     }
-	
-	
-    
 }]);

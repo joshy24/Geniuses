@@ -73,7 +73,7 @@ class School{
 
         return $object;
   }
-	
+  
   private function has_attribute($attribute) {
 	  // get_object_vars returns an associative array with all attributes 
 	  // (incl. private ones!) as the keys and their current values as the value
@@ -82,11 +82,11 @@ class School{
 	  // Will return true or false
 	  return array_key_exists($attribute, $object_vars);
   }
-
+  
   public function attributes(){
     return get_object_vars($this);
   }
-
+  
   protected function escaped_attributes(){
     global $database;
 

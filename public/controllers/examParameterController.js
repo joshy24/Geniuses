@@ -1,9 +1,9 @@
 myApp.controller('examParameterController', ['$scope', '$state', '$stateParams', 'service', 'responseReview', 'authService', 'storageService', function($scope, $state, $stateParams, service, responseReview, authService, storageService) {
-  
+  	
     $('.horizontal-menu').show();
     
     $('.exam-options').show();
-   // $('.year-options').hide();
+    // $('.year-options').hide();
 	
     $scope.examoption = "year";
     $scope.exam_parameters;
@@ -30,6 +30,7 @@ myApp.controller('examParameterController', ['$scope', '$state', '$stateParams',
     if(authService.isLoggedIn()){
         if(service.setSubjectTopics()){
            service.send().then(function(response){
+			   console.log(response.data);
              if(responseReview.check(response.data)==true){  
                 if(response.data.data){
                    $scope.subjectTopics = response.data.data; 

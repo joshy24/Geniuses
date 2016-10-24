@@ -818,7 +818,7 @@ myApp.directive('postItem', ['$compile', '$state', '$sce', 'service', 'responseR
     }
 
     return {
-        restrict: "EAC",
+        restrict: "EA",
         link: linker,
         scope: {
             content:'=',
@@ -838,7 +838,7 @@ myApp.directive('postItem', ['$compile', '$state', '$sce', 'service', 'responseR
                     var auser = authService.getUser();
                
                     if($.isEmptyObject($scope.content.comments)===false){
-                        //merging comments and comments info array#############################################3333333
+                        //merging comments and comments info array#############################################
                         $scope.comments = [];
 
                         var count = 0; 

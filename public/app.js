@@ -1,13 +1,12 @@
 var myApp = angular.module('geniuses', ['ui.router','timer']);
     
-
- window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1152198031480823',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+window.fbAsyncInit = function() {
+	FB.init({
+	  appId      : '1152198031480823',
+	  xfbml      : true,
+	  version    : 'v2.5'
+	});
+};
 
 
 (function(d, s, id) {
